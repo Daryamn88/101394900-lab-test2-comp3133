@@ -4,5 +4,11 @@ import { MissiondetailsComponent } from './missiondetails/missiondetails.compone
 
 export const routes: Routes = [
   { path: '', component: MissionlistComponent },
-  { path: 'mission/:id', component: MissiondetailsComponent },
+  {
+    path: 'mission/:id',
+    component: MissiondetailsComponent,
+    data: {
+      renderMode: 'no-prerender'
+    }
+  }
 ];
