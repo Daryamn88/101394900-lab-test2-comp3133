@@ -1,0 +1,38 @@
+<h2>Mission List</h2>
+
+<section style="margin-bottom: 20px;">
+  <mat-form-field appearance="outline" style="width: 200px;">
+    <mat-label>Filter by Launch Year</mat-label>
+    <input matInput [(ngModel)]="year" placeholder="e.g. 2020">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="filterMissions()">Filter</button>
+</section>
+
+<section>
+  <h3>Launch</h3>
+  <mat-radio-group>
+    <mat-radio-button value="success">Successful</mat-radio-button>
+    <mat-radio-button value="failed">Failed</mat-radio-button>
+  </mat-radio-group>
+
+  <h3>Landing</h3>
+  <mat-radio-group>
+    <mat-radio-button value="success">Successful</mat-radio-button>
+    <mat-radio-button value="failed">Failed</mat-radio-button>
+  </mat-radio-group>
+</section>
+
+<button mat-stroked-button color="warn" style="margin-top: 15px;">Reset Filters</button>
+
+<div *ngFor="let mission of missions" style="margin-top: 30px;">
+  <mat-card style="background-color: #b2dff2; border: 1px solid black;">
+    <mat-card-header>
+      <img mat-card-avatar [src]="mission.links.mission_patch_small" alt="Patch" />
+      <mat-card-title>{{ mission.mission_name }}</mat-card-title>
+      <mat-card-subtitle>{{ mission.launch_year }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ mission.details }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
